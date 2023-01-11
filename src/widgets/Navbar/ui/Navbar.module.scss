@@ -33,11 +33,12 @@
   margin-left: 6px;
   width: 32px;
   height: 32px;
-
-
-
   &:nth-child(n){
     fill: var(--inverted-bg-color);
+    :active{
+      height: 30px;
+      width: 30px;
+    }
   }
 }
 .icon_box_profile{
@@ -45,5 +46,9 @@
   height: 30px;
   &:nth-child(n){
     fill: var(--inverted-bg-color);
+    :active{
+      height: 28px;
+      width: 28px;
+    }
   }
 }

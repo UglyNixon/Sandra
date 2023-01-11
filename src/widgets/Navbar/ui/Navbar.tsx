@@ -13,7 +13,7 @@ interface NavbarProps {
 
 
 export const Navbar = ({className}:NavbarProps) => {
-    const [collapsed,setCollapsed] = useState(false)
+    const [collapsed,setCollapsed] = useState(true)
     const sidebarToggle =():void=>{
         setCollapsed(prev=>!prev)
     }
