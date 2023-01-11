@@ -1,0 +1,46 @@
+.HeaderLink{
+  font: var(--font-l);
+  text-decoration: none;
+  position: relative;
+  margin-right: 40px;
+}
+.primary{
+  color:var(--shadow-primary-color);
+}
+.secondary{
+  color: var(--secondary-color);
+}
+.HeaderLink:active{
+  color: var(--secondary-color);
+  &::after{
+    color: var(--secondary-color);
+  }
+}
+.HeaderLink::after {
+  content: '';
+  position: absolute;
+  border-radius: 6px 0px;
+  left: 0%;
+  bottom: 0px;
+  width: 0%;
+  height: 5px;
+  background-color: var(--secondary-color);
+}
+.HeaderLink:hover{
+  color:var(--primary-color);
+  &:active{
+    color: var(--secondary-color);
+    &::after{
+      color: var(--secondary-color);
+    }
+  }
+}
+.HeaderLink:hover:after {
+  width: 100%;
+  transition: width 0.35s;
+}
+.HeaderLink::before{
+  content: '\2022';
+  margin-right: 3px;
+
+}

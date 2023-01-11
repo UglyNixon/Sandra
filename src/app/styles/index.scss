@@ -19,3 +19,23 @@ body {
   color: var(--primary-color);
   min-height: 100vh;
 }
+.content-page{
+  display: flex;
+}
+.page-wrapper{
+
+  padding: 20px;
+}
+.f-r{
+  flex-direction: row;
+}
+.f-c{
+  flex-direction: column;
+}
+.d-f{
+  display: flex;
+}
+.a-c{
+  align-items: center;
+}
+

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+.Navbar{
+  width: 100%;
+  height: var(--navbar-heigth);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10%;
+  gap: 10px;
+}
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  height: 37px;
+}
+.Name{
+  font-size: 48px;
+  font-family: 'Arizonia', cursive;
+  line-height: 34px;
+}
+.icon_box{
+  margin-left: 6px;
+  display: inherit;
+}
+.icon_box_menu{
+  margin-left: 6px;
+  width: 32px;
+  height: 32px;
+
+
+
+  &:nth-child(n){
+    fill: var(--inverted-bg-color);
+  }
+}
+.icon_box_profile{
+  width: 30px;
+  height: 30px;
+  &:nth-child(n){
+    fill: var(--inverted-bg-color);
+  }
+}
