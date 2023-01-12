@@ -1,1 +1,1 @@
-export {HeaderLink} from './ui/HeaderLink'
+export { HeaderLink } from './ui/HeaderLink';

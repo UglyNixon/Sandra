@@ -1,9 +1,8 @@
+import { classNames } from 'shared/lib/classNames/classNames';
 
-import {classNames} from "shared/lib/classNames/classNames";
-
-import cls from './HeaderLink.module.scss'
-import {FC} from "react";
-import {Link, LinkProps} from "react-router-dom";
+import { FC } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+import cls from './HeaderLink.module.scss';
 
 export enum HeaderLinkTheme {
     PRIMARY='primary',
@@ -14,23 +13,21 @@ interface HeaderLinkProps extends LinkProps{
     theme?:HeaderLinkTheme
 }
 
-
 export const HeaderLink:FC<HeaderLinkProps> = (props) => {
-const {
-    children,
-    className,
-    to,
-    theme=HeaderLinkTheme.PRIMARY,
-    ...otherProps
+    const {
+        children,
+        className,
+        to,
+        theme = HeaderLinkTheme.PRIMARY,
+        ...otherProps
 
-}=props
+    } = props;
     const mods:Record<string, boolean> = {
         [cls[theme]]: true,
     };
     return (
-        <Link to={to} className={classNames(cls.HeaderLink,mods,[className])}>
+        <Link to={to} className={classNames(cls.HeaderLink, mods, [className])}>
             {children}
         </Link>
     );
 };
-

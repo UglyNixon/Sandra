@@ -1,20 +1,26 @@
+import { classNames } from 'shared/lib/classNames/classNames';
 
-import {classNames} from "shared/lib/classNames/classNames";
+import { useTheme } from 'app/providers/ThemeProvider';
+import cls from './SwitcherTheme.module.scss';
 
-import cls from './SwitcherTheme.module.scss'
-import {useTheme} from "app/providers/ThemeProvider";
 interface SwitcherThemeProps {
     className?:string,
 }
 
-
-export const SwitcherTheme = ({className}:SwitcherThemeProps) => {
-    const{toggleTheme} =useTheme()
+export const SwitcherTheme = ({ className }:SwitcherThemeProps) => {
+    const { toggleTheme } = useTheme();
     return (
-    <label className={classNames(cls.SwitcherTheme,{},[className])}>
-        <input className={classNames(cls.input)} type="checkbox" onChange={toggleTheme}/>
-        <span className={classNames(cls.slider,{},[])}></span>
-    </label>
+        <label
+            className={classNames(cls.SwitcherTheme, {}, [className])}
+            htmlFor="langInput"
+        >
+            <input
+                className={classNames(cls.input)}
+                type="checkbox"
+                onChange={toggleTheme}
+                id="langInput"
+            />
+            <span className={classNames(cls.slider, {}, [])} />
+        </label>
     );
 };
-
