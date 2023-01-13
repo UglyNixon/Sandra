@@ -1,14 +1,15 @@
-.Sidebar{
-  height: calc(100vh - var(--navbar-heigth));
-  width: var(--sidebar-width);
-  background: var(--sidebar-color);
-  position: absolute;
-  right: 10%;
-  top:var(--navbar-heigth);
-  z-index: 1;
-  transition: width  0.35s, height 0.35s;
+.Sidebar {
+    height: calc(100vh - var(--navbar-heigth));
+    width: var(--sidebar-width);
+    background: var(--sidebar-color);
+    position: absolute;
+    right: 10%;
+    top: var(--navbar-heigth);
+    z-index: 1;
+    transition: width  0.35s, height 0.35s;
 }
-.collapsed{
-  width : var(--sidebar-width-collapsed);
-  height: var(--sidebar-height-collapsed);
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+    height: var(--sidebar-height-collapsed);
 }
