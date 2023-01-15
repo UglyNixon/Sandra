@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { HeaderLink } from 'shared/ui/HeaderLink';
 import { SwitcherTheme } from 'widgets/ThemeSwticher';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import MenuIcon from 'shared/assets/icons/menu.svg';
+import ProfileIcon from 'shared/assets/img/profile.svg';
+import MenuIcon from 'shared/assets/img/menu.svg';
 import { Sidebar } from 'widgets/Sidebar';
 import React, { FC, useState } from 'react';
 import cls from './Navbar.module.scss';
@@ -22,7 +22,7 @@ export const Navbar:FC<NavbarProps> = () => {
             >
                 <div className={classNames(cls.Name)}>Sandra Brokane</div>
                 <div className={classNames(cls.left, {}, ['d-f', 'f-r'])}>
-                    <HeaderLink to="/">Home</HeaderLink>
+                    <HeaderLink to="/">Главная</HeaderLink>
                     <HeaderLink to="/services">Services</HeaderLink>
                     <HeaderLink to="about">About</HeaderLink>
                     <HeaderLink to="contact">Contact</HeaderLink>

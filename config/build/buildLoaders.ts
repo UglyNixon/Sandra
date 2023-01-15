@@ -34,17 +34,18 @@ export function buildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
                 options: {
                     modules: {
                         auto: (resPath:string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:8]'
-                            : '[hash:base64:8]',
+                        localIdentName:
+                            options.isDev
+                                ? '[path][name]__[local]--[hash:base64:8]'
+                                : '[hash:base64:8]',
                     },
-
                 },
-
             },
             // Compiles Sass to CSS
             'sass-loader',
         ],
     };
+
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -55,14 +56,29 @@ export function buildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
         exclude: /node_modules/,
     };
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        test: /\.(png|jpe?g|jpg|gif|woff2|woff)$/i,
+        type: 'asset/resource',
         use: [
             {
                 loader: 'file-loader',
             },
         ],
     };
+    const imgAsset = {
+        test: /\.(?:|gif|png|jpg)$/,
+        type: 'asset/resource',
+        generator: {
+            filename:
+                () => (options.isDev ? 'shared/assets/img/[name][ext]' : 'img/[name].[contenthash][ext]'),
+        },
+    };
+
     return [
-        babelLoader, typescriptLoader, svgLoader, cssLoader, fileLoader,
+        babelLoader,
+        typescriptLoader,
+        svgLoader,
+        cssLoader,
+        imgAsset,
+        // fileLoader,
     ];
 }

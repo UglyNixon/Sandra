@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './SwitcherTheme.module.scss';
 

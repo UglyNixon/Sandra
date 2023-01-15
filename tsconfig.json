@@ -35,7 +35,9 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "typeRoots" : ["node_modules/@types", "src/app/types/global.d.ts"],
+
     }
   },
 
