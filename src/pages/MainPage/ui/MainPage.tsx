@@ -1,7 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 import cls from './MainPage.module.scss';
 
 interface MainPageProps {

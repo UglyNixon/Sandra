@@ -35,10 +35,12 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-      "typeRoots" : ["node_modules/@types", "src/app/types/global.d.ts"],
-
+      "module": "CommonJS"
     }
   },
-
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+  ]
 }

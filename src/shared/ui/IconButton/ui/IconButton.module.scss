@@ -1,0 +1,45 @@
+.IconButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--inverted-bg-color);
+}
+
+.button {
+    outline: none;
+    background: none;
+    border: none;
+
+    &:nth-child(n) {
+        fill: var(--inverted-bg-color);
+    }
+}
+
+.size_m {
+    font-size: 16px;
+}
+
+.size_l {
+    font-size: 29px;
+}
+
+.size_m .button {
+    width: 32px;
+    height: 32px;
+}
+
+.size_m .button:active :nth-child(n) {
+    height: 30px;
+    width: 30px;
+}
+
+.size_l .button {
+    width: 45px;
+    height: 45px;
+}
+
+.size_l .button:active :nth-child(n) {
+    width: 43px;
+    height: 43px;
+}

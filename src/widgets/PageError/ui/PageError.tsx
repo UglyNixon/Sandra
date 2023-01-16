@@ -13,7 +13,6 @@ export const PageError = ({ className }:PageErrorProps) => {
     };
     return (
         <div
-
             className={classNames(cls.PageError, {}, [className])}
         >
             <img alt="sadCat" src={`${sadCat}`} className={cls.img} />
@@ -29,7 +28,10 @@ export const PageError = ({ className }:PageErrorProps) => {
                 >
                     {t('Обновить')}
                 </button>
-                <p>{t('Произошла непредвиденная ошибка :(')}</p>
+                <p>
+                    {t('Произошла непредвиденная ошибка')}
+                    {' :('}
+                </p>
             </div>
 
         </div>
