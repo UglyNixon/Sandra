@@ -7,6 +7,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import React, { FC, useState } from 'react';
 import { IconButton, IconButtonSize } from 'shared/ui/IconButton';
 import { useTranslation } from 'react-i18next';
+import { HeaderLinkTheme } from 'shared/ui/HeaderLink/ui/HeaderLink';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,10 +30,10 @@ export const Navbar:FC<NavbarProps> = () => {
             >
                 <div className={classNames(cls.Name)}>{t('Sandra Brokane')}</div>
                 <div className={classNames(cls.left, {}, ['d-f', 'f-r'])}>
-                    <HeaderLink to="/">{t('Главная')}</HeaderLink>
-                    <HeaderLink to="/services">{t('Услуги')}</HeaderLink>
-                    <HeaderLink to="about">{t('О нас')}</HeaderLink>
-                    <HeaderLink to="contact">{t('Контакты')}</HeaderLink>
+                    <HeaderLink theme={[HeaderLinkTheme.PRIMARY]} to="/">{t('Главная')}</HeaderLink>
+                    <HeaderLink theme={[HeaderLinkTheme.PRIMARY]} to="/services">{t('Услуги')}</HeaderLink>
+                    <HeaderLink theme={[HeaderLinkTheme.PRIMARY]} to="about">{t('О нас')}</HeaderLink>
+                    <HeaderLink theme={[HeaderLinkTheme.PRIMARY]} to="contact">{t('Контакты')}</HeaderLink>
                 </div>
                 <div className={classNames(cls.right, {}, ['d-f', 'f-r', 'a-c'])}>
                     <SwitcherTheme />

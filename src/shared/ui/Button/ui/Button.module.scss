@@ -1,13 +1,91 @@
 .Button {
     cursor: pointer;
-    color: var(--primary-color);
 }
 
 .clear {
     padding: 0;
     margin: 0;
     border: none;
-    background: var(--bg-color);
-    color: var(--primary-color);
     outline: none;
+}
+
+.background {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    font: var(--font-l);
+    font-weight: 700;
+
+    &:hover {
+        color: var(--shadow-primary-color);
+    }
+
+    &:active {
+        color: var(--primary-color);
+    }
+}
+
+.inverted_background {
+    background-color: var(--inverted-bg-color);
+    color: var(--bg-color);
+    font: var(--font-l);
+    font-weight: 700;
+
+    &:hover {
+        color: var(--shadow-bg-color);
+    }
+
+    &:active {
+        color: var(--bg-color);
+    }
+}
+
+.background.shadow {
+    color: var(--shadow-primary-color);
+
+    &:hover {
+        color: var(--primary-color);
+    }
+
+    &:active {
+        color: var(--shadow-primary-color);
+    }
+}
+
+.inverted_background.shadow {
+    color: var(--shadow-bg-color);
+
+    &:hover {
+        color: var(--primary-color);
+    }
+
+    &:active {
+        color: var(--shadow-bg-color);
+    }
+}
+
+.lined {
+    position: relative;
+    z-index: 1;
+}
+
+.lined::after {
+    content: "";
+    position: absolute;
+    border-radius: 6px 0;
+    left: 0;
+    bottom: 10%;
+    width: 0;
+    height: 5px;
+    z-index: -1;
+    background-color: var(--secondary-color);
+}
+
+.lined:hover {
+    color: var(--primary-color);
+
+    &::after {
+        color: var(--secondary-color);
+        width: 100%;
+        transition: width 0.35s;
+    }
 }
