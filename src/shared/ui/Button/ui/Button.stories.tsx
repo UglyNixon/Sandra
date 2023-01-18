@@ -1,8 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ThemeButton } from './Button';
-import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {
     title: 'shared/Button',
@@ -23,10 +23,36 @@ Clear.args = {
     children: 'Clear',
     theme: [ThemeButton.CLEAR],
 };
-export const ClearDark = Template.bind({});
-ClearDark.args = {
+export const BackgroundClear = Template.bind({});
+BackgroundClear.args = {
     children: 'Clear',
-    theme: [ThemeButton.CLEAR],
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
+};
+export const InvertedBackgroundClear = Template.bind({});
+InvertedBackgroundClear.args = {
+    children: 'Clear',
+    theme: [ThemeButton.INV_BACKGROUND, ThemeButton.CLEAR],
+};
+export const BackgroundClearShadow = Template.bind({});
+BackgroundClearShadow.args = {
+    children: 'Clear',
+    shadow: true,
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
+};
+export const BackgroundClearShadowLined = Template.bind({});
+BackgroundClearShadow.args = {
+    children: 'Clear',
+    shadow: true,
+    lined: true,
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
 };
 
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const DarkBackgroundClearShadowLined = Template.bind({});
+DarkBackgroundClearShadowLined.args = {
+    children: 'Clear',
+    shadow: true,
+    lined: true,
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
+};
+
+DarkBackgroundClearShadowLined.decorators = [ThemeDecorator(Theme.DARK)];
