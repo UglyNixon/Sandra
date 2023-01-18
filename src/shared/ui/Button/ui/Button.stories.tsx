@@ -21,12 +21,12 @@ Primary.args = {
 export const Clear = Template.bind({});
 Clear.args = {
     children: 'Clear',
-    theme: ThemeButton.CLEAR,
+    theme: [ThemeButton.CLEAR],
 };
 export const ClearDark = Template.bind({});
 ClearDark.args = {
     children: 'Clear',
-    theme: ThemeButton.CLEAR,
+    theme: [ThemeButton.CLEAR],
 };
 
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
