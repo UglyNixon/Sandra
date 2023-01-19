@@ -1,7 +1,13 @@
 .LangSwitcher {
     border: 0;
     outline: 0;
-    border-radius: 3px;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    width: 60px;
+    padding: 8px 6px;
+    border-radius: 6px;
+    font: var(--font-m);
+    font-weight: 700;
 }
 .LangSwitcher:focus { outline: 0 !important; }
 

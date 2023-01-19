@@ -35,23 +35,24 @@ InvertedBackgroundClear.args = {
 };
 export const BackgroundClearShadow = Template.bind({});
 BackgroundClearShadow.args = {
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
     children: 'Clear',
     shadow: true,
-    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
+    lined: false,
 };
 export const BackgroundClearShadowLined = Template.bind({});
-BackgroundClearShadow.args = {
+BackgroundClearShadowLined.args = {
     children: 'Clear',
+    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
     shadow: true,
     lined: true,
-    theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
 };
 
 export const DarkBackgroundClearShadowLined = Template.bind({});
 DarkBackgroundClearShadowLined.args = {
     children: 'Clear',
     shadow: true,
-    lined: true,
+    lined: false,
     theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
 };
 

@@ -9,7 +9,6 @@ export enum ThemeButton{
     ELLIPSE='ellipse',
     BACKGROUND='background',
     INV_BACKGROUND='inverted_background',
-    SHADOW='shadow'
 
 }
 interface ButtonProps extends ButtonHTMLAttributes<any>{
@@ -36,12 +35,13 @@ export const Button:FC<ButtonProps> = (props) => {
         ...themeMods(cls, theme),
         [cls.shadow]: shadow,
         [cls.lined]: lined,
-
     };
     return (
         <button
             type="button"
             className={classNames(cls.Button, mods, [className])}
+            onClick={otherProps.onClick}
+            id={otherProps.id}
         >
             {children}
         </button>

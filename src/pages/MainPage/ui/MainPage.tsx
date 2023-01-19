@@ -14,6 +14,7 @@ const MainPage = ({ className }:MainPageProps) => {
             {t('Главная страница')}
 
             <Button
+                shadow
                 theme={[ThemeButton.CLEAR, ThemeButton.BACKGROUND]}
             >
                 {t('Стрижка')}
