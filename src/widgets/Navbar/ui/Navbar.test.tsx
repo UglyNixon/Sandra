@@ -1,13 +1,10 @@
 import { screen } from '@testing-library/react';
 import { Navbar } from 'widgets/Navbar';
-import {
-    renderWithTranslation,
-} from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
-import { BrowserRouter } from 'react-router-dom';
+import { renderComponent } from 'shared/lib/tests/componentRender/renderComponent';
 
 describe('Navbar', () => {
     test('ligth theme', () => {
-        renderWithTranslation(<Navbar />, { wrapper: BrowserRouter });
+        renderComponent(<Navbar />, { route: '/main' });
         expect(screen.getByTestId('navbar')).toBeInTheDocument();
     });
 });

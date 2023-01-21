@@ -52,7 +52,7 @@ export const DarkBackgroundClearShadowLined = Template.bind({});
 DarkBackgroundClearShadowLined.args = {
     children: 'Clear',
     shadow: true,
-    lined: false,
+    lined: true,
     theme: [ThemeButton.BACKGROUND, ThemeButton.CLEAR],
 };
 

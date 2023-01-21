@@ -1,10 +1,16 @@
 import { Story } from '@storybook/react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 
-export const RouterDecorator = (StoryComponent: Story) => (
-    <BrowserRouter>
-        <StoryComponent />
-    </BrowserRouter>
+export interface renderWithRouterOptions {
+    route?:string
+}
 
-);
+export const RouterDecorator = (StoryComponent: Story, options:renderWithRouterOptions) => {
+    const { route = '/' } = options;
+    return (
+        <MemoryRouter initialEntries={[route]}>
+            <StoryComponent />
+        </MemoryRouter>
+    );
+};

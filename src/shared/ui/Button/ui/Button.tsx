@@ -42,6 +42,7 @@ export const Button:FC<ButtonProps> = (props) => {
             className={classNames(cls.Button, mods, [className])}
             onClick={otherProps.onClick}
             id={otherProps.id}
+            {...otherProps}
         >
             {children}
         </button>

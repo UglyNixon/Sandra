@@ -18,6 +18,7 @@ body {
 
 .content-page {
     display: flex;
+    z-index: var(--content-page-z-index);
 }
 
 .page-wrapper {
