@@ -4,6 +4,7 @@ import React, {
     FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -15,6 +16,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props:ModalProps) => {
+    const { theme } = useTheme();
     const {
         children,
         className,
@@ -57,7 +59,7 @@ export const Modal = (props:ModalProps) => {
     return (
         <Portal>
             <div
-                className={classNames(cls.Modal, mods, [className])}
+                className={classNames(cls.Modal, mods, [className, theme])}
                 onClick={closeHandler}
             >
                 <div className={cls.overlay}>

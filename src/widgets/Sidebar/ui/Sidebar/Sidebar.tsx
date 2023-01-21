@@ -21,7 +21,7 @@ export const Sidebar = ({
 }:SidebarProps) => {
     const { t } = useTranslation();
     const { theme } = useTheme();
-    const dark = theme === 'dark' ? 'dark-button' : '';
+    const dark = theme === 'app_dark_theme' ? 'dark-button' : '';
     const relocateToMap = () => {
         window.open('https://goo.gl/maps/u9MbCG3YZfqaVEmc7', '_blank');
     };
@@ -47,7 +47,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -59,7 +59,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -71,7 +71,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -83,7 +83,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -101,7 +101,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -113,7 +113,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -125,7 +125,7 @@ export const Sidebar = ({
                             shadow
                             theme={[
                                 ThemeButton.CLEAR,
-                                theme === 'dark'
+                                theme === 'app_dark_theme'
                                     ? ThemeButton.INV_BACKGROUND
                                     : ThemeButton.BACKGROUND]}
                             className={cls.buttons}
@@ -146,7 +146,7 @@ export const Sidebar = ({
                                 shadow
                                 theme={[
                                     ThemeButton.CLEAR,
-                                    theme === 'dark'
+                                    theme === 'app_dark_theme'
                                         ? ThemeButton.INV_BACKGROUND
                                         : ThemeButton.BACKGROUND]}
                                 className={cls.buttons}
@@ -162,7 +162,7 @@ export const Sidebar = ({
                                 shadow
                                 theme={[
                                     ThemeButton.CLEAR,
-                                    theme === 'dark'
+                                    theme === 'app_dark_theme'
                                         ? ThemeButton.INV_BACKGROUND
                                         : ThemeButton.BACKGROUND]}
                                 className={cls.buttons}
@@ -178,7 +178,7 @@ export const Sidebar = ({
                                 shadow
                                 theme={[
                                     ThemeButton.CLEAR,
-                                    theme === 'dark'
+                                    theme === 'app_dark_theme'
                                         ? ThemeButton.INV_BACKGROUND
                                         : ThemeButton.BACKGROUND]}
                                 className={cls.buttons}
