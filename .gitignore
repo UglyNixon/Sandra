@@ -5,3 +5,4 @@ node_modules
 .npmrc
 /dist
 /extractedTranslations
+.package-lock.json
