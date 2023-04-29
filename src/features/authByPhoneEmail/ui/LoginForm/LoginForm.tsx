@@ -13,10 +13,10 @@ export const LoginForm = ({ className }:LoginFormProps) => {
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
             <div className={cls.input}>
-                <Input placeholder={"Телефон / Email"}/>
+                <Input placeholder="Телефон / Email" />
             </div>
             <div className={cls.input}>
-                <Input placeholder={"Пароль"} />
+                <Input placeholder="Пароль" />
             </div>
             <div className={cls.button}>
                 <Button theme={[ThemeButton.ELLIPSE]}>

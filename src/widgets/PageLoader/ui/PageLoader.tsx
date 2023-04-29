@@ -1,10 +1,6 @@
 import cls from './PageLoader.module.scss';
 
-interface PageLoaderProps {
-    className?:string,
-}
-
-export const PageLoader = ({ className }:PageLoaderProps) => (
+export const PageLoader = () => (
     <div className={cls.PageLoader}>
         <div className={cls.loader}>
             <div className={cls.face}>

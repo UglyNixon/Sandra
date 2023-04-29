@@ -85,10 +85,7 @@ export const Modal = (props:ModalProps) => {
                             <div
                                 className={cls.exit}
                                 onClick={closeHandler}
-                            >
-                                {/* eslint-disable-next-line i18next/no-literal-string */}
-                                X
-                            </div>
+                            />
                         )}
                     </div>
                 </div>

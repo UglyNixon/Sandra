@@ -10,7 +10,7 @@ export const RegistrationForm = ({ className }:RegistrationFormProps) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.RegistrationForm, {}, [className])}>
-            Регистрация
+            {t('Регистрация')}
         </div>
     );
 };

@@ -7,7 +7,6 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import GpsIcon from 'shared/assets/img/gps.svg';
 import PhoneIcon from 'shared/assets/img/phone.svg';
 import MailIcon from 'shared/assets/img/mail.svg';
-import { useEffect, useState } from 'react';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

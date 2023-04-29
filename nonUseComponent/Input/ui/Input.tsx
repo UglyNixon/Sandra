@@ -1,6 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+// @ts-ignore
 import React, { InputHTMLAttributes, memo, useState } from 'react';
+// @ts-ignore
 import cls from './Input.module.scss';
+import { classNames } from '../../../src/shared/lib/classNames/classNames';
 
 type HTMLInputProps= Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' |'onBlur' >
 
@@ -24,7 +26,7 @@ export const Input = memo((props:InputProps) => {
         type = 'text',
         ...otherProps
     } = props;
-    const focus = (e:React.FocusEvent<HTMLInputElement>) => {
+    const focus = () => {
         setIsFocused(true);
     };
     const blur = () => {
@@ -36,6 +38,8 @@ export const Input = memo((props:InputProps) => {
     };
     return (
         <div className={classNames(cls.Input, {}, [className])}>
+
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
                 className={`${cls.label} 
                 ${(isFocused || value) && cls.inpFocus}
