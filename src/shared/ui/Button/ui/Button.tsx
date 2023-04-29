@@ -15,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<any>{
     className?:string,
     theme?:ThemeButton[],
     shadow?:boolean,
-    lined?:boolean
+    lined?:boolean,
 }
 
 export const Button:FC<ButtonProps> = (props) => {
@@ -40,7 +40,6 @@ export const Button:FC<ButtonProps> = (props) => {
         <button
             type="button"
             className={classNames(cls.Button, mods, [className])}
-            onClick={otherProps.onClick}
             id={otherProps.id}
             {...otherProps}
         >

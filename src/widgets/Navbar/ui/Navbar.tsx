@@ -8,15 +8,24 @@ import React, { FC, useState } from 'react';
 import { IconButton, IconButtonSize } from 'shared/ui/IconButton';
 import { useTranslation } from 'react-i18next';
 import { HeaderLinkTheme } from 'shared/ui/HeaderLink/ui/HeaderLink';
+import { UserMenu } from 'features/UserMenu/ui/UserMenu';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
 }
 
 export const Navbar:FC<NavbarProps> = () => {
-    const [collapsed, setCollapsed] = useState(true);
+    // delete this
+    const auth = !true;
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+    const [userCollapsed, setUserCollapsed] = useState(true);
     const sidebarToggle = ():void => {
-        setCollapsed((prev) => !prev);
+        if (!userCollapsed) { setUserCollapsed(true); }
+        setSidebarCollapsed((prev) => !prev);
+    };
+    const userToggle = ():void => {
+        if (!sidebarCollapsed) { setSidebarCollapsed(true); }
+        setUserCollapsed((prev) => !prev);
     };
     const { t } = useTranslation('navbar');
     return (
@@ -24,7 +33,8 @@ export const Navbar:FC<NavbarProps> = () => {
             data-testid="navbar"
             className={classNames(cls.Navbar)}
         >
-            <Sidebar collapsed={collapsed} />
+            <Sidebar collapsed={sidebarCollapsed} />
+            <UserMenu collapsed={userCollapsed} auth={auth} />
             <div
                 className={classNames(cls.Header)}
             >
@@ -40,7 +50,7 @@ export const Navbar:FC<NavbarProps> = () => {
                     <div className={cls.icon_box}>
                         <IconButton
                             size={IconButtonSize.M}
-                            onClick={() => ''}
+                            onClick={userToggle}
                             styleAttr="ml-1"
                         >
                             <ProfileIcon />

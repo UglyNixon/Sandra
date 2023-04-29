@@ -38,7 +38,7 @@ export const Sidebar = ({
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={[cls.content, !collapsed && cls.show].join((' '))}>
-                <LangSwitcher />
+                {!collapsed && <LangSwitcher />}
                 <hr className={cls.hr} />
                 <div className={cls.butContainer}>
                     <div className={cls.butContainer}>

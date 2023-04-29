@@ -12,11 +12,15 @@
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
     --navbar-heigth: 76px;
     --sidebar-width: 330px;
+    --userMenu-width : 330px;
     --sidebar-height: calc(100vh - var(--navbar-heigth));
     --sidebar-width-collapsed: 0;
     --sidebar-height-collapsed: 0;
+    --userMenu-width-collapsed :0;
+    --userMenu-heidth-collapsed :0;
     --global-light-color: #ffd0a8;
     --global-dark-color: #2c2c2c;
     --modal-z-index: 20;
     --overlay-color: rgba(0 0 0 / 60%);
+    --content-page-z-index:0;
 }

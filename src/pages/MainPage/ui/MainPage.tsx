@@ -4,6 +4,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/ui/Button';
 import { useState } from 'react';
 import { Modal } from 'shared/ui/Modal';
 import { Counter } from 'entities/Counter';
+import { Input } from 'shared/ui/Input/ui/Input';
 import cls from './MainPage.module.scss';
 
 interface MainPageProps {
@@ -13,7 +14,7 @@ interface MainPageProps {
 const MainPage = ({ className }:MainPageProps) => {
     const { t } = useTranslation('main');
     const [isOpen, setIsOpen] = useState(false);
-
+    const [value, setValue] = useState('');
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>
             {t('Главная страница')}
@@ -27,7 +28,7 @@ const MainPage = ({ className }:MainPageProps) => {
                 {t('Модалка')}
             </Button>
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal lazy isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Ab accusantium ad, cumque, deleniti eaque earum esse id
                 laudantium molestiae nemo nobis obcaecati omnis quibusdam
@@ -35,6 +36,16 @@ const MainPage = ({ className }:MainPageProps) => {
             </Modal>
             <hr />
             <Counter />
+            <br />
+            <br />
+            <Button theme={[ThemeButton.ELLIPSE]}>
+                {' '}
+                {t('Модалка')}
+            </Button>
+            <br />
+            <br />
+            <br />
+            <Input placeholder="Логин" value={value} onChange={(text) => setValue(text)} />
         </div>
     );
 };

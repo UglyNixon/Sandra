@@ -10,8 +10,11 @@ import cls from './Modal.module.scss';
 interface ModalProps {
     className?:string,
     children?:ReactNode,
+    border?:boolean,
     isOpen?:boolean,
-    onClose?:()=>void
+    haveExit?:boolean,
+    onClose?:()=>void,
+    lazy?:boolean
 }
 const ANIMATION_DELAY = 300;
 
@@ -19,11 +22,15 @@ export const Modal = (props:ModalProps) => {
     const { theme } = useTheme();
     const {
         children,
+        lazy = false,
         className,
+        haveExit = false,
         onClose,
+        border = false,
         isOpen = true,
     } = props;
     const [isClosing, setIsClosing] = useState(false);
+
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const mods:Record<string, boolean> = {
         [cls.opened]: isOpen,
@@ -46,6 +53,7 @@ export const Modal = (props:ModalProps) => {
             closeHandler();
         }
     }, [closeHandler]);
+
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
@@ -55,19 +63,33 @@ export const Modal = (props:ModalProps) => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
-
+    // lazy load component
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => { if (isOpen) setIsMounted(true); }, [isOpen]);
+    if (lazy && !isMounted) return null;
     return (
         <Portal>
             <div
                 className={classNames(cls.Modal, mods, [className, theme])}
                 onClick={closeHandler}
             >
+
                 <div className={cls.overlay}>
                     <div
-                        className={cls.content}
+                        className={`${cls.content} ${border && cls.border}`}
                         onClick={onContentClick}
                     >
                         {children}
+
+                        {haveExit && (
+                            <div
+                                className={cls.exit}
+                                onClick={closeHandler}
+                            >
+                                {/* eslint-disable-next-line i18next/no-literal-string */}
+                                X
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
