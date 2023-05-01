@@ -38,6 +38,19 @@
   font:var(--font-m);
 }
 
+.span{
+  font:var(--font-m);
+  font-size: small;
+  height: 23px;
+  padding: 0;
+  opacity: 0;
+  margin-top: -16px;
+
+}
+.error{
+  color:red;
+  opacity: 1;
+}
 .trueInput:focus{
     border: none;
     outline: none;

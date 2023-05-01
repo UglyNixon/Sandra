@@ -45,6 +45,7 @@ module.exports = {
             ignoreComments: true,
             code: 110,
         }],
+        'guard-for-in': 'warn',
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',

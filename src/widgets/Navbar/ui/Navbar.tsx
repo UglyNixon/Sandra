@@ -4,11 +4,12 @@ import { SwitcherTheme } from 'widgets/ThemeSwticher';
 import ProfileIcon from 'shared/assets/img/profile.svg';
 import MenuIcon from 'shared/assets/img/menu.svg';
 import { Sidebar } from 'widgets/Sidebar';
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { IconButton, IconButtonSize } from 'shared/ui/IconButton';
 import { useTranslation } from 'react-i18next';
 import { HeaderLinkTheme } from 'shared/ui/HeaderLink/ui/HeaderLink';
 import { UserMenu } from 'features/UserMenu/ui/UserMenu';
+import useClickOutside from 'shared/lib/hooks/useClickOutside';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -23,18 +24,25 @@ export const Navbar:FC<NavbarProps> = () => {
         if (!userCollapsed) { setUserCollapsed(true); }
         setSidebarCollapsed((prev) => !prev);
     };
+    const menuRef = useRef<HTMLDivElement>(null);
+    // Проверка закрытия окна по клику из все элемента
+    // const handleClickOutside = () => {
+    //     setUserCollapsed(true);
+    // };
+    // useClickOutside(menuRef, handleClickOutside, 'userMenu');
     const userToggle = ():void => {
         if (!sidebarCollapsed) { setSidebarCollapsed(true); }
         setUserCollapsed((prev) => !prev);
     };
     const { t } = useTranslation('navbar');
+
     return (
         <div
             data-testid="navbar"
             className={classNames(cls.Navbar)}
         >
             <Sidebar collapsed={sidebarCollapsed} />
-            <UserMenu collapsed={userCollapsed} auth={auth} />
+            <UserMenu collapsed={userCollapsed} auth={auth} ref={menuRef} id="userMenu" />
             <div
                 className={classNames(cls.Header)}
             >

@@ -1,0 +1,30 @@
+.RegistrationForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 60px;
+
+}
+.input {
+  min-height: 80px;
+  margin-top: 22px;
+}
+.button{
+  margin: 50px 0 20px;
+
+}
+.swap{
+  color:  var(--shadow-inverted-color);;
+  border-bottom: 2px dotted  var(--shadow-inverted-color);
+  position: absolute;
+  bottom:12px;
+  cursor: pointer;
+  &:hover {
+    color: var(--primary-color);
+    border-color:var(--primary-color);
+  }
+  &:active{
+    transform: scale(0.95);
+  }
+}

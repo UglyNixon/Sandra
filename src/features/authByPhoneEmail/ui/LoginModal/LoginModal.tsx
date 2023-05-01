@@ -9,11 +9,12 @@ interface LoginModalProps {
     isOpen:boolean,
     onClose:()=>void,
     login:boolean,
+    setLogin:(isLogin:boolean)=>void
 
 }
 
 export const LoginModal = ({
-    className, isOpen, onClose, login,
+    className, isOpen, onClose, login, setLogin,
 }:LoginModalProps) => {
     const isAuth = false;
     return (
@@ -26,9 +27,8 @@ export const LoginModal = ({
             haveExit
         >
 
-            {login && <LoginForm />}
-            {!login && <RegistrationForm />}
-
+            {login && <LoginForm setLogin={setLogin} />}
+            {!login && <RegistrationForm setLogin={setLogin} />}
         </Modal>
     );
 };

@@ -8,8 +8,10 @@ interface InputProps extends HTMLInputProps{
     className?:string,
     value?:string,
     placeholder?:string,
-    onChange?:(value:string)=>void,
+    onChange?:(e:React.ChangeEvent<HTMLInputElement>)=>void,
     errorMessage?:string,
+    inEmpty?:boolean,
+    isDirty?:boolean,
     onBlur?:()=>void,
     id?:string
 }
@@ -20,6 +22,7 @@ export const Input = memo((props:InputProps) => {
         className,
         value,
         id,
+        isDirty,
         onChange,
         errorMessage,
         placeholder,
@@ -32,11 +35,10 @@ export const Input = memo((props:InputProps) => {
     };
     const blur = () => {
         setIsFocused(false);
-        onBlur();
+        onBlur?.();
     };
     const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
-        console.log(value);
-        onChange?.(e.target.value);
+        onChange?.(e);
     };
     return (
         <div className={classNames(cls.Input, {}, [className])}>
@@ -45,13 +47,14 @@ export const Input = memo((props:InputProps) => {
                     htmlFor={id}
                     className={`${cls.label} 
                 ${(isFocused) && cls.inpFocus} ${value && cls.inpFocus}
+                ${(!isFocused && errorMessage) && cls.error}
                 `}
                 >
                     {placeholder}
                 </label>
                 <input
                     id={id}
-                    className={`${cls.trueInput} ${errorMessage && cls.errorBorder}`}
+                    className={`${cls.trueInput} `}
                     type={type}
                     placeholder={isFocused ? '' : placeholder}
                     value={value}
@@ -62,8 +65,13 @@ export const Input = memo((props:InputProps) => {
                 />
                 <span className={cls.underline} />
             </div>
+            <div className={`
+            ${cls.span} 
+            ${errorMessage && cls.error}`}
+            >
+                {errorMessage}
+            </div>
 
-            {(!isFocused && errorMessage) && <span className={cls.error}>{errorMessage}</span>}
         </div>
     );
 });

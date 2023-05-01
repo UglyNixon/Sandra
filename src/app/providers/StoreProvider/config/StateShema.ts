@@ -1,7 +1,10 @@
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
+import { LoginSchema } from 'features/authByPhoneEmail';
+
 
 export interface StateSchema {
     counter:CounterSchema;
-    user:UserSchema
+    user:UserSchema;
+    login?:LoginSchema;
 }

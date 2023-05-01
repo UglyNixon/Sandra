@@ -4,6 +4,7 @@ import React, {
     FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import KrustIcon from 'shared/assets/img/krust.svg';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
@@ -85,7 +86,9 @@ export const Modal = (props:ModalProps) => {
                             <div
                                 className={cls.exit}
                                 onClick={closeHandler}
-                            />
+                            >
+                                <KrustIcon className={cls.krust}/>
+                            </div>
                         )}
                     </div>
                 </div>

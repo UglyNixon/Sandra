@@ -1,18 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { useCallback, useState } from 'react';
+import React, {
+    ForwardedRef,
+    forwardRef, Ref, useCallback, useState,
+} from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Button, ThemeButton } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/authByPhoneEmail';
+
 import cls from './UserMenu.module.scss';
 
-interface UserMenuProps {
+interface UserMenuProps{
     className?:string,
     collapsed:boolean,
-    auth:boolean
+    auth:boolean,
+    id?:string
 }
 
-export const UserMenu = ({ className, collapsed, auth }:UserMenuProps) => {
+export const UserMenu = forwardRef(({
+    className, collapsed, auth, id,
+}:UserMenuProps, fRef:ForwardedRef<HTMLDivElement>) => {
     const { t } = useTranslation();
     const { theme } = useTheme();
     const [loginIsOpen, setLoginIsOpen] = useState({ open: false, login: false });
@@ -22,12 +29,14 @@ export const UserMenu = ({ className, collapsed, auth }:UserMenuProps) => {
     const showLoginForm = useCallback(() => {
         setLoginIsOpen({ login: true, open: true });
     }, []);
-    const showRegistsForm = useCallback(() => {
+    const showRegistForm = useCallback(() => {
         setLoginIsOpen({ login: false, open: true });
     }, []);
     const dark = theme === 'app_dark_theme' ? 'dark-button' : '';
     return (
         <div
+            ref={fRef}
+            id={id}
             data-testid="userMenu"
             className={classNames(cls.UserMenu, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -36,6 +45,7 @@ export const UserMenu = ({ className, collapsed, auth }:UserMenuProps) => {
                     login={loginIsOpen.login}
                     isOpen={loginIsOpen.open}
                     onClose={onCloseLoginModal}
+                    setLogin={(isLogin:boolean) => setLoginIsOpen({ login: isLogin, open: true })}
                 />
 
                 {auth
@@ -84,7 +94,7 @@ export const UserMenu = ({ className, collapsed, auth }:UserMenuProps) => {
                             </Button>
                             <Button
                                 id={dark}
-                                onClick={showRegistsForm}
+                                onClick={showRegistForm}
                                 shadow
                                 theme={[
                                     ThemeButton.CLEAR,
@@ -101,7 +111,7 @@ export const UserMenu = ({ className, collapsed, auth }:UserMenuProps) => {
             </div>
         </div>
     );
-};
+});
 function setState(arg0: boolean): [any, any] {
     throw new Error('Function not implemented.');
 }

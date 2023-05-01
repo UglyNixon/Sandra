@@ -15,6 +15,9 @@ const MainPage = ({ className }:MainPageProps) => {
     const { t } = useTranslation('main');
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState('');
+    const qq = () => {
+        console.log(value);
+    };
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>
             {t('Главная страница')}
@@ -38,14 +41,14 @@ const MainPage = ({ className }:MainPageProps) => {
             <Counter />
             <br />
             <br />
-            <Button theme={[ThemeButton.ELLIPSE]}>
+            <Button theme={[ThemeButton.ELLIPSE]} onClick={qq}>
                 {' '}
                 {t('Модалка')}
             </Button>
             <br />
             <br />
             <br />
-            <Input placeholder="Логин" value={value} onChange={(text) => setValue(text)} />
+            <Input placeholder="Логин" value={value} onChange={(e) => setValue(e.target.value)} />
         </div>
     );
 };
